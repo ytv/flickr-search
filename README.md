@@ -1,8 +1,11 @@
-# flickr Search Demo
+# Flickr Search Demo
 
 Use this app to search through Flickr's public photo feed by tag.
 
-Frameworks & Modules leveraged: Angular.JS, jQuery, Boostrap (UI), ngInfiniteScroll
+Frameworks & Modules leveraged:  
+Angular.JS  
+Boostrap (UI)  
+ngInfiniteScroll
 
 ### Notes
 
