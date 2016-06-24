@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/app.css">
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.2.2/ng-infinite-scroll.min.js"></script>
+    <script src="public/js/appModule.js"></script>
+    <script src="public/js/controllers/appCtrl.js"></script>
+    <script src="public/js/controllers/searchBarCtrl.js"></script>
+    <script src="public/js/services/flickrService.js"></script>
+    <script src="public/js/services/appService.js"></script>
+    <title>Flickr Search Demo</title>
+</head>
+<body>
+    <div class="container" ng-controller="AppCtrl" data-ng-init="init()">
+
+        <div class="row">
+            <h1>
+                <img class="flickr-icon" src="https://s.yimg.com/pw/images/goodies/white-large-chiclet.png" alt="flickr-icon" />
+                <span class="header-blue">flick</span><span class="header-pink">r</span>
+            </h1>
+        </div>
+
+        <div class="row search" ng-controller="searchBarCtrl">
+            <i class="fa fa-search"></i>
+            <input class="search-bar" type="search" ng-model="search" placeholder="Search by Tag (e.g. sunset)" ng-keypress="submitSearch($event)">
+            <button class="btn btn-primary" type="submit" ng-click="getItems(search)">Submit</button>
+        </div>
+
+        <div class="error">{{ error }}</div>
+
+        <div class="card-columns" infinite-scroll="loadMore()" infinite-scroll-distance="0">
+            <div class="card" ng-repeat="item in loadedData track by $index">
+                <a class="card-img-top" ng-href="{{ item.url }}">
+                    <img class="img-responsive " ng-src="{{ item.img }}" alt="placeholder" />
+                </a>
+                <div class="card-block">
+                    <div class="card-title">
+                        {{ item.title }}
+                    </div>
+
+                    <div class="tags">
+                        <button class="tag btn" ng-repeat="tag in item.tags" ng-modal="tag" ng-click="getItems(tag)" ng-show="tag.length">
+                            {{ tag }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
