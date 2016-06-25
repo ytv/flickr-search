@@ -1,4 +1,4 @@
-App.service('AppService', [function() {
+App.service('processDataService', [function() {
     this.processData = function(data) {
         let results = [];
         if(data.status === 200) {
