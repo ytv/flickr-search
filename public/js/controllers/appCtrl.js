@@ -12,11 +12,14 @@ function ($scope, flickrService, processDataService, likeService, $anchorScroll)
 
     $scope.getItems = function(search) {
         $anchorScroll();
+        $scope.spinner = !$scope.spinner;
         flickrService.getItems(search).then(function(data) {
             $scope.data = processDataService.processData(data);
             $scope.loadedData = $scope.data.slice(0, load);
         }).catch(function(err) {
             $scope.error = "Error retrieving data.  Status: " + err.status;
+        }).then(function(){
+            $scope.spinner = !$scope.spinner;
         });
     };
 
@@ -24,6 +27,7 @@ function ($scope, flickrService, processDataService, likeService, $anchorScroll)
     Therefore in order to fully demonstrate this project, the same 20 images are
     repeatedly used to load the page. */
     $scope.loadMore = function() {
+        $scope.spinner = !$scope.spinner;
         let pointer = $scope.loadedData.length % $scope.data.length,
             dataLeftover = Math.min(load, $scope.data.length - pointer);
 

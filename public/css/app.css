@@ -40,9 +40,15 @@ h1 {
     font-size: 18px;
     height: 37px;
     margin-right: 10px;
+    outline: none;
     padding-top: 2px;
     padding-left: 36px;
     width: 300px;
+    -webkit-transition: background .55s ease;
+    -moz-transition: background .55s ease;
+    -ms-transition: background .55s ease;
+    -o-transition: background .55s ease;
+    transition: background .55s ease;
 }
 
 /*search icon*/
@@ -64,6 +70,16 @@ h1 {
 
 .error {
     color: #f00;
+}
+
+/*-----SPINNER-----*/
+
+.spinner {
+    color: #999;
+    font-size: 100px;
+    line-height: 500px;
+    text-align:center;
+    width: 100%;
 }
 
 /*-----CARDS-----*/

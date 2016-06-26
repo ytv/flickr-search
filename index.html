@@ -35,7 +35,6 @@
             <button class="btn btn-primary" type="submit" ng-click="getItems(search)">Submit</button>
         </div>
         <div class="error">{{ error }}</div>
-
         <div class="card-columns" infinite-scroll="loadMore()" infinite-scroll-distance="0">
             <div class="card" ng-controller="itemCtrl" ng-repeat="item in loadedData track by $index">
                 <a class="card-img-top" ng-href="{{ item.url }}">
@@ -54,6 +53,7 @@
                 </div>
             </div>
         </div>
+        <i class="fa fa-spinner fa-spin spinner" ng-show="spinner"></i>
 
     </div>
 </body>
