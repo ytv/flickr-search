@@ -1,9 +1,10 @@
-App.controller('AppCtrl', ['$scope', 'flickrService', 'AppService', '$anchorScroll', function ($scope, flickrService, AppService, $anchorScroll) {
+App.controller('AppCtrl', ['$scope', 'flickrService', 'processDataService', 'likeService', '$anchorScroll',
+function ($scope, flickrService, processDataService, likeService, $anchorScroll) {
 
     $scope.error = '';
     $scope.data = [];
     $scope.loadedData = [];
-    let load = 8;
+    let load = 10;
 
     $scope.init = function() {
         $scope.getItems('sunset');
@@ -12,10 +13,10 @@ App.controller('AppCtrl', ['$scope', 'flickrService', 'AppService', '$anchorScro
     $scope.getItems = function(search) {
         $anchorScroll();
         flickrService.getItems(search).then(function(data) {
-            $scope.data = AppService.processData(data);
+            $scope.data = processDataService.processData(data);
             $scope.loadedData = $scope.data.slice(0, load);
-        }).catch(function(data) {
-            $scope.error = "Error: Error retrieving data.  Status: " + data.status;
+        }).catch(function(err) {
+            $scope.error = "Error retrieving data.  Status: " + err.status;
         });
     };
 

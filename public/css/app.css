@@ -1,4 +1,5 @@
 body {
+    /*background-color: #D3DBEA;*/
     font: 20px Arial, Sans-Serif;
 }
 
@@ -36,6 +37,7 @@ h1 {
 
 .search-bar {
     border-radius: 5px;
+    font-size: 18px;
     height: 37px;
     margin-right: 10px;
     padding-top: 2px;
@@ -52,7 +54,6 @@ h1 {
     z-index: 1;
 }
 
-/*submit btn*/
 .search .btn {
     padding: 5px 12px;
     position: relative;
@@ -66,10 +67,19 @@ h1 {
 }
 
 /*-----CARDS-----*/
+.card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 
 img {
-    border-radius: 5px 5px 0 0;
+    border-radius: 4px 4px 0 0;
     width: 100%;
+}
+
+.card-block {
+    background-color: #f8f8f8;
 }
 
 .card-title {
@@ -78,8 +88,13 @@ img {
     word-wrap: break-word;
 }
 
-.card-block {
-    background-color: #f8f8f8;
+.heart {
+    color: #999;
+    margin-left: 5px;
+}
+
+.heart.liked {
+    color: #f00;
 }
 
 .tag {
