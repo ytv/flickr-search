@@ -27,7 +27,6 @@ function ($scope, flickrService, processDataService, likeService, $anchorScroll)
     Therefore in order to fully demonstrate this project, the same 20 images are
     repeatedly used to load the page. */
     $scope.loadMore = function() {
-        $scope.spinner = !$scope.spinner;
         let pointer = $scope.loadedData.length % $scope.data.length,
             dataLeftover = Math.min(load, $scope.data.length - pointer);
 
