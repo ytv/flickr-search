@@ -11,6 +11,7 @@ function ($scope, flickrService, processDataService, likeService, $anchorScroll)
     };
 
     $scope.getItems = function(search) {
+        $scope.loadedData = [];
         $anchorScroll();
         $scope.spinner = !$scope.spinner;
         flickrService.getItems(search).then(function(data) {

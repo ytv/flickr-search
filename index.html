@@ -31,7 +31,7 @@
 
         <div class="row search" ng-controller="searchBarCtrl">
             <i class="fa fa-search"></i>
-            <input class="search-bar" type="search" ng-model="search" placeholder="Search by Tag (e.g. sunset)" ng-keypress="submitSearch($event)">
+            <input class="search-bar" type="search" ng-model="search" placeholder="Search by Tag (e.g. sunset)" ng-keypress="submitSearch($event)" ng-change="onSearchChange()">
             <button class="btn btn-primary" type="submit" ng-click="getItems(search)">Submit</button>
         </div>
         <div class="error">{{ error }}</div>
