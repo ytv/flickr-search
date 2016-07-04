@@ -46,7 +46,7 @@
                         {{ item.title }}
                     </div>
                     <div class="tags">
-                        <i class="fa fa-heart-o heart" ng-class="{'liked': item.liked}" ng-click="likeImg(item, id)"></i>
+                        <i class="fa fa-heart-o heart" id="heart-{{index}}" ng-class="{'liked': item.liked}" ng-click="likeImg(item, id)"></i>
                         <button class="tag btn" ng-repeat="tag in item.tags" ng-modal="tag" ng-click="getItems(tag)" ng-show="tag.length">
                             {{ tag }}
                         </button>
