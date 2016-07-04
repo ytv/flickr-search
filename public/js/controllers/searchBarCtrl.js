@@ -1,6 +1,6 @@
 App.controller('searchBarCtrl', ['$scope', '$timeout',
     function ($scope, $timeout) {
-        let searchDelay = 500,
+        var searchDelay = 500,
             previousTerm,
             timeout;
 

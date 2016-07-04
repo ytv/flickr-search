@@ -4,7 +4,7 @@ function ($scope, flickrService, processDataService, likeService, $anchorScroll)
     $scope.error = '';
     $scope.data = [];
     $scope.loadedData = [];
-    let load = 10;
+    var load = 10;
 
     $scope.init = function() {
         $scope.getItems('sunset');
@@ -28,7 +28,7 @@ function ($scope, flickrService, processDataService, likeService, $anchorScroll)
     Therefore in order to fully demonstrate this project, the same 20 images are
     repeatedly used to load the page. */
     $scope.loadMore = function() {
-        let pointer = $scope.loadedData.length % $scope.data.length,
+        var pointer = $scope.loadedData.length % $scope.data.length,
             dataLeftover = Math.min(load, $scope.data.length - pointer);
 
         for(var i = 0; i < dataLeftover; i++) {
